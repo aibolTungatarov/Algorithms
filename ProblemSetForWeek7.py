@@ -1,3 +1,4 @@
+import math
 ##First Task
 def pow3(x, n):
     r = 1
@@ -11,15 +12,22 @@ def pow3(x, n):
 
 ## Second Task
 def loc_peaks(arr,i,j):
-    middle = math.floor(((i+j)/2))
-    if (arr[middle] > arr[middle-1] and arr[middle] > arr[middle+1]): 
+    middle = (int)(math.floor(((i+j)/2)))
+    if middle - 1 < 0:
+        if arr[middle] > arr[middle+1]:
+            return arr[middle]
+    if middle + 1 >= len(arr):
+        if arr[middle] > arr[middle-1]:
+            return arr[middle]
+    if (arr[middle] > arr[middle-1] and arr[middle] > arr[middle+1]):
         return arr[middle]
     elif arr[middle] < arr[middle-1]:
         return loc_peaks(arr,i,middle-1)
     elif arr[middle] < arr[middle+1]:
         return loc_peaks(arr,middle+1,j)
     
-    
+arr = [1,2,3,4,5,6,7,8]
+print (loc_peaks(arr,0,len(arr)))
     
 ## Third Task    
 def findMin(arr):
