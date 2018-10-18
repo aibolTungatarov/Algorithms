@@ -29,7 +29,6 @@ def findMin(arr):
         if minNum > arr[i]:
             minNum = arr[i]
             minNumIndex = i
-    return minNum,minNumIndex
+    return minNumIndex
 def findShiftK(arr):
-    minNum = findMin(arr)[0]
-    return minNumIndex = findMin(arr)[1]
+    return findMin(arr)
